@@ -93,10 +93,10 @@ DATABASES = {
         'ENGINE': 'djongo',
         'NAME': 'c4corders',
         'CLIENT': {
-            'host': 'mongodb+srv://marshjoh:bx4sNYaJ@c4corders.k1gamwc.mongodb.net/',
+            'host': 'mongodb+srv://testUser:c4cOrders416!!!@c4corders.k1gamwc.mongodb.net/',
         
-            'username': 'marshjoh',
-            'password': 'bx4sNYaJ',
+            'username': 'testUser',
+            'password': 'c4cOrders416!!!',
             'authSource': 'admin',
             'retryWrites': True,
             'w': 'majority',
