@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Checkout - Crazy 4 Crystals</title>
+    <!-- Load any necessary CSS files -->
+    {% load static %}
+
+    <!--Style Sheet-->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/checkout.css' %}"/>
+</head>
+<body>
+    <h1>Checkout</h1>
+    <form id="checkout-form" method="post">
+        {% csrf_token %}
+        <!-- Shipping Information -->
+        <h2>Shipping Information</h2>
+        <!-- Add fields for shipping information -->
+        <!-- Example: -->
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+        <!-- Add more shipping fields as needed -->
+
+        <!-- Payment Information -->
+        <h2>Payment Information</h2>
+        <!-- Add fields for payment information -->
+        <!-- Example: -->
+        <label for="card-number">Card Number:</label>
+        <input type="text" id="card-number" name="card-number" required><br>
+        <!-- Add more payment fields as needed -->
+
+        <!-- Order Summary -->
+        <h2>Order Summary</h2>
+        <ul>
+            <!-- Iterate over cart items and display each item -->
+            {% for item in cart_items %}
+                <li>{{ item.product_name }} - ${{ item.price }} x {{ item.quantity }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- Total Amount -->
+        <h3>Total: ${{ total_amount }}</h3>
+
+        <!-- Submit Button -->
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
